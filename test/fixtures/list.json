@@ -1,0 +1,148 @@
+{
+  "schema": 2,
+  "repo": {
+    "default_branch": "main",
+    "forge": {
+      "url": "https://github.com/example-user/bb",
+      "provider": "github",
+      "host": "github.com",
+      "owner": "example-user",
+      "name": "demo-app",
+      "remote": "origin"
+    }
+  },
+  "collected": {
+    "ci": false,
+    "summary": false
+  },
+  "items": [
+    {
+      "branch": "bb/add-feature-thr_aaa111",
+      "head": {
+        "sha": "f820a402cac821e2206ca183163910fd2521487a",
+        "short_sha": "f820a402c",
+        "subject": "Example commit subject",
+        "committed_at": "2026-09-16T02:29:22Z"
+      },
+      "worktree": {
+        "path": "/Users/example-user/.bb/plugins/environment-git-worktree/host-data/worktrees/thr_aaa111-1/demo-app",
+        "main": false,
+        "current": true,
+        "previous": false,
+        "detached": false,
+        "branch_mismatch": true,
+        "duplicate_branch": false,
+        "changes": {
+          "staged": false,
+          "modified": false,
+          "untracked": false,
+          "renamed": false,
+          "deleted": false,
+          "conflicted": false,
+          "diff": {
+            "added": 0,
+            "deleted": 0
+          }
+        }
+      },
+      "default_branch": {
+        "ahead": 17,
+        "behind": 110,
+        "diff": {
+          "added": 4481,
+          "deleted": 315
+        },
+        "orphan": false,
+        "merge_conflicts": true
+      },
+      "display": {
+        "state": "would_conflict",
+        "symbols": "\u2717\u2691"
+      }
+    },
+    {
+      "branch": "local/develop",
+      "head": {
+        "sha": "c841aa9d138fc0e719410ff3c681aa87374362ac",
+        "short_sha": "c841aa9d1",
+        "subject": "Example commit subject",
+        "committed_at": "2026-09-19T00:10:08Z"
+      },
+      "worktree": {
+        "path": "/Users/example-user/Code/demo-app",
+        "main": true,
+        "current": false,
+        "previous": false,
+        "detached": false,
+        "branch_mismatch": true,
+        "duplicate_branch": false,
+        "changes": {
+          "staged": false,
+          "modified": false,
+          "untracked": false,
+          "renamed": false,
+          "deleted": false,
+          "conflicted": false,
+          "diff": {
+            "added": 0,
+            "deleted": 0
+          }
+        }
+      },
+      "upstream": {
+        "remote": "origin",
+        "branch": "main",
+        "ahead": 20,
+        "behind": 0
+      },
+      "display": {
+        "state": "is_main",
+        "symbols": "^\u21e1\u2691"
+      }
+    },
+    {
+      "branch": "bb/fix-bug-thr_bbb222",
+      "head": {
+        "sha": "f820a402cac821e2206ca183163910fd2521487a",
+        "short_sha": "f820a402c",
+        "subject": "Example commit subject",
+        "committed_at": "2026-09-16T02:29:22Z"
+      },
+      "worktree": {
+        "path": "/Users/example-user/.bb/plugins/environment-git-worktree/host-data/worktrees/thr_bbb222-1/demo-app",
+        "main": false,
+        "current": false,
+        "previous": false,
+        "detached": false,
+        "branch_mismatch": true,
+        "duplicate_branch": false,
+        "changes": {
+          "staged": false,
+          "modified": false,
+          "untracked": false,
+          "renamed": false,
+          "deleted": false,
+          "conflicted": false,
+          "diff": {
+            "added": 0,
+            "deleted": 0
+          }
+        }
+      },
+      "default_branch": {
+        "ahead": 17,
+        "behind": 110,
+        "diff": {
+          "added": 4481,
+          "deleted": 315
+        },
+        "orphan": false,
+        "merge_conflicts": true
+      },
+      "display": {
+        "state": "would_conflict",
+        "symbols": "\u2717\u2691"
+      }
+    }
+  ]
+}
