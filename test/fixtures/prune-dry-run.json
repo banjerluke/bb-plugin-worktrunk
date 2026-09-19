@@ -1,0 +1,26 @@
+[
+  {
+    "branch": "feat/gone",
+    "branch_deleted": true,
+    "kind": "worktree",
+    "path": "/Users/example-user/worktrees/demo-app/feat-gone",
+    "reason": "ancestor of",
+    "target": "main"
+  },
+  {
+    "branch": "feat/same",
+    "branch_deleted": true,
+    "kind": "worktree",
+    "path": "/Users/example-user/worktrees/demo-app/feat-same",
+    "reason": "same commit as",
+    "target": "main"
+  },
+  {
+    "branch": "chore/stray",
+    "branch_deleted": true,
+    "kind": "branch_only",
+    "path": null,
+    "reason": "ancestor of",
+    "target": "main"
+  }
+]

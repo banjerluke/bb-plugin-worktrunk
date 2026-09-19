@@ -1,0 +1,14 @@
+[
+  {
+    "branch": "feat/gone",
+    "branch_outcome": "deleted",
+    "kind": "worktree",
+    "path": "/Users/example-user/worktrees/demo-app/feat-gone"
+  },
+  {
+    "branch": "chore/stray",
+    "branch_outcome": "deleted",
+    "kind": "branch_only",
+    "path": null
+  }
+]
