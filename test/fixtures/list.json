@@ -57,7 +57,7 @@
       },
       "display": {
         "state": "would_conflict",
-        "symbols": "\u2717\u2691"
+        "symbols": "✗⚑"
       }
     },
     {
@@ -97,7 +97,7 @@
       },
       "display": {
         "state": "is_main",
-        "symbols": "^\u21e1\u2691"
+        "symbols": "^⇡⚑"
       }
     },
     {
@@ -141,7 +141,54 @@
       },
       "display": {
         "state": "would_conflict",
-        "symbols": "\u2717\u2691"
+        "symbols": "✗⚑"
+      }
+    },
+    {
+      "branch": "feat/integrated",
+      "head": {
+        "sha": "0dc829a88df3a7d130c4b0b4e5bd577647b03019",
+        "short_sha": "0dc829a",
+        "subject": "feature work",
+        "committed_at": "2026-08-02T09:14:31Z"
+      },
+      "worktree": {
+        "path": "/Users/example-user/worktrees/demo-app/feat-integrated",
+        "main": false,
+        "current": false,
+        "previous": false,
+        "detached": false,
+        "branch_mismatch": false,
+        "duplicate_branch": false,
+        "changes": {
+          "staged": false,
+          "modified": true,
+          "untracked": true,
+          "renamed": false,
+          "deleted": false,
+          "conflicted": false,
+          "diff": {
+            "added": 12,
+            "deleted": 3
+          }
+        }
+      },
+      "default_branch": {
+        "ahead": 0,
+        "behind": 1,
+        "diff": {
+          "added": 0,
+          "deleted": 0
+        },
+        "orphan": false,
+        "integration": {
+          "reason": "ancestor"
+        },
+        "merge_conflicts": false
+      },
+      "display": {
+        "state": "integrated",
+        "symbols": "⊂"
       }
     }
   ]

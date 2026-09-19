@@ -29,6 +29,12 @@ export interface Worktree {
   /** Integrated into the default branch, so `wt step prune` would remove it. */
   pruneCandidate: boolean;
   ownership: Ownership;
+  /**
+   * Newest mtime among dirty files, ISO-8601, falling back to the HEAD commit
+   * date when clean. Computed host-side; worktrunk does not provide it.
+   * `null` when the worktree could not be stat'ed.
+   */
+  lastTouchedAt: string | null;
 }
 
 export interface RepoSnapshot {
@@ -41,3 +47,9 @@ export interface RepoSnapshot {
    */
   warnings: string[];
 }
+
+/**
+ * What bb's own worktree discovery says about a path. `null` when bb has no
+ * environment for it at all — a worktrunk-created worktree bb never saw.
+ */
+export type BbAvailability = "available" | "unavailable" | null;

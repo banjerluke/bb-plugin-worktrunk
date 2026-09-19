@@ -17,10 +17,12 @@ const BB_MANAGED_PATH_SEGMENT =
   "/plugins/environment-git-worktree/host-data/worktrees/";
 
 /**
- * Prune candidates as `wt list` marks them: `_` same commit, `⊂` content
- * integrated. Provisional — confirm against a fixture from a repo that has one
- * before relying on it.
+ * `default_branch.integration.reason` is the structured form of what `wt list`
+ * renders as `_` (same commit) and `⊂` (content integrated); both correspond
+ * exactly to what `wt step prune --dry-run` offered on a recorded repo. The
+ * symbols remain a fallback for a payload that omits the structured field.
  */
+const INTEGRATION_REASONS = ["same_commit", "ancestor", "squashed", "rebased"];
 const PRUNE_SYMBOLS = ["_", "⊂"];
 
 const changesSchema = z
@@ -60,8 +62,14 @@ const itemSchema = z
       .object({
         ahead: z.number().optional(),
         behind: z.number().optional(),
+        integration: z
+          .object({ reason: z.string().optional() })
+          .loose()
+          .nullable()
+          .optional(),
       })
       .loose()
+      .nullable()
       .optional(),
     display: z
       .object({ state: z.string().optional(), symbols: z.string().optional() })
@@ -97,6 +105,15 @@ function isDirty(changes: z.infer<typeof changesSchema> | undefined): boolean {
   );
 }
 
+function isPruneCandidate(
+  item: z.infer<typeof itemSchema>,
+  symbols: string,
+): boolean {
+  const reason = item.default_branch?.integration?.reason;
+  if (reason !== undefined) return INTEGRATION_REASONS.includes(reason);
+  return PRUNE_SYMBOLS.some((symbol) => symbols.includes(symbol));
+}
+
 function adaptItem(raw: unknown): Worktree | null {
   const parsed = itemSchema.safeParse(raw);
   if (!parsed.success) return null;
@@ -128,8 +145,11 @@ function adaptItem(raw: unknown): Worktree | null {
     conflicted: worktree.changes?.conflicted === true,
     ahead: item.default_branch?.ahead ?? 0,
     behind: item.default_branch?.behind ?? 0,
-    pruneCandidate: PRUNE_SYMBOLS.some((symbol) => symbols.includes(symbol)),
+    pruneCandidate: isPruneCandidate(item, symbols),
     ownership: ownershipForPath(worktree.path),
+    // The clean-worktree clock. `host.ts` replaces this with the newest mtime
+    // among dirty files when there are any.
+    lastTouchedAt: head?.committed_at ?? null,
   };
 }
 
